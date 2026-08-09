@@ -1,16 +1,66 @@
-# React + Vite
+# Sentinel Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sentinel Visualizer is a real-time monitoring dashboard for the Sentinel Microkernel. It renders hardware telemetry, MRAM (Magnetoresistive RAM) state, and system boot logs in a single operator console, built with React and p5.js.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application is organized into three synchronized panels:
 
-## React Compiler
+| Panel | Description |
+|---|---|
+| **Hardware Telemetry Canvas** | A live p5.js visualization of the microkernel's hardware state |
+| **MRAM State Table** | A React-rendered table reflecting current MRAM contents, updated in real time from the canvas |
+| **System Log Terminal** | A scrolling terminal displaying timestamped logs from power-on through the boot sequence |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+State is shared between the p5.js canvas and the React UI via callback props (`addLog`, `syncMram`), keeping the log terminal and MRAM table in sync with events occurring in the visualization.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** — application UI and state management
+- **Vite** — build tooling and development server
+- **p5.js** — canvas-based hardware visualization
+- **ESLint** — code quality and linting
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm
+
+### Installation
+
+\`\`\`bash
+npm install
+\`\`\`
+
+### Development
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+### Production Build
+
+\`\`\`bash
+npm run build
+npm run preview
+\`\`\`
+
+### Linting
+
+\`\`\`bash
+npm run lint
+\`\`\`
+
+## Project Structure
+
+\`\`\`
+src/
+├── App.jsx                   # Application entry point
+└── components/
+    ├── Dashboard.jsx         # Main layout and panel composition
+    ├── HardwareCanvas.jsx    # p5.js hardware telemetry visualization
+    ├── MramTable.jsx         # MRAM state table
+    └── MatrixTerminal.jsx    # System log terminal
+\`\`\`
