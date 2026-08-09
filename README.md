@@ -30,32 +30,32 @@ State is shared between the p5.js canvas and the React UI via callback props (`a
 
 ### Installation
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### Development
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ### Production Build
 
-\`\`\`bash
+```bash
 npm run build
 npm run preview
-\`\`\`
+```
 
 ### Linting
 
-\`\`\`bash
+```bash
 npm run lint
-\`\`\`
+```
 
 ## Project Structure
 
-\`\`\`
+```
 src/
 ├── App.jsx                   # Application entry point
 └── components/
@@ -63,4 +63,4 @@ src/
     ├── HardwareCanvas.jsx    # p5.js hardware telemetry visualization
     ├── MramTable.jsx         # MRAM state table
     └── MatrixTerminal.jsx    # System log terminal
-\`\`\`
+```
