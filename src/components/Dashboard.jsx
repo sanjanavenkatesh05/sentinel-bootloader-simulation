@@ -22,7 +22,7 @@ const Dashboard = () => {
 
             {/* Left Pane (60%): Hardware Canvas */}
             <div style={{ flex: 6, display: 'flex', flexDirection: 'column', padding: '20px' }}>
-                <h2 style={{ margin: '0 0 20px 0', color: '#ccc' }}>Sentinel Microkernel : Hardware Telemetry</h2>
+                <h2 style={{ margin: '0 0 20px 0', color: '#ccc' }}>Sentinel Bootloader : Hardware Telemetry</h2>
                 {/* Pass down the state setter so p5 can sync with React */}
                 <HardwareCanvas addLog={addLog} syncMram={setMramState} />
             </div>
